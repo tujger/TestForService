@@ -23,7 +23,8 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         id = startId;
-        String mode = intent.getStringExtra("mode");
+        String mode = "initial";
+        if(intent != null && intent.hasExtra("mode")) mode = intent.getStringExtra("mode");
         System.out.println("Service:onStartCommand:"+startId+":"+mode);
 
         return super.onStartCommand(intent, flags, startId);
